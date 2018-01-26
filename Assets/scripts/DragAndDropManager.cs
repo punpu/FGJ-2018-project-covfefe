@@ -8,6 +8,7 @@ public class DragAndDropManager : MonoBehaviour
     private GameObject draggedObject;
     private Vector2 touchOffset;
     private Vector3 draggedObjectScale;
+    private Vector3 draggedObjectStartPos;
 
     void Update()
     {
@@ -54,6 +55,7 @@ public class DragAndDropManager : MonoBehaviour
                     draggingItem = true;
                     draggedObject = hit.transform.gameObject;
                     draggedObjectScale = draggedObject.transform.localScale;
+                    draggedObjectStartPos = draggedObject.transform.position;
 
                     touchOffset = (Vector2)hit.transform.position - inputPosition;
                     draggedObject.transform.localScale = new Vector3(draggedObjectScale.x * 1.2f, draggedObjectScale.y * 1.2f);
@@ -75,6 +77,7 @@ public class DragAndDropManager : MonoBehaviour
     {
         draggingItem = false;
         draggedObject.transform.localScale = draggedObjectScale;
+        draggedObject.transform.position = draggedObjectStartPos;
         draggedObject = null;
     }
 }
