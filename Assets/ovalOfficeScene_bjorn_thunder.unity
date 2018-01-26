@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 701673204}
   - component: {fileID: 701673203}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: president
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
