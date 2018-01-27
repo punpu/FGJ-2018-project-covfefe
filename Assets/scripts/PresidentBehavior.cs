@@ -12,6 +12,7 @@ public class PresidentBehavior : MonoBehaviour {
 	public float maxTime = 1.5f;
 	public float moveSpeed = 1;
     public string transmitterTag = "Transmitter";
+    public bool tinfoilHatActive = false;
 
 	private float tChange = 0;
     private float randomX;
@@ -20,6 +21,8 @@ public class PresidentBehavior : MonoBehaviour {
 
     private Transform tinfoilHat;
 
+    public float panicCounter;
+    
     // Use this for initialization
     void Start () {
         transmitters = GameObject.FindGameObjectsWithTag(transmitterTag);
@@ -70,6 +73,7 @@ public class PresidentBehavior : MonoBehaviour {
         {
             item.SendMessage("SetOnCooldown");
             tinfoilHat.gameObject.SetActive(true);
+            tinfoilHatActive = true;
             StartCoroutine(RemoveTinfoilHatAfter5Seconds());
         }
         else
@@ -78,11 +82,20 @@ public class PresidentBehavior : MonoBehaviour {
         }
     }
 
+    public void ApplyPanic(float appliedPanic)
+    {
+        if (!tinfoilHatActive)
+        {
+            panicCounter = panicCounter + appliedPanic;
+        }
+        
+    }
 
     IEnumerator RemoveTinfoilHatAfter5Seconds()
     {
         yield return new WaitForSeconds(5);
         tinfoilHat.gameObject.SetActive(false);
+        tinfoilHatActive = false;
     }
 
 }
