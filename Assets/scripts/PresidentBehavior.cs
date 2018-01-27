@@ -93,7 +93,7 @@ public class PresidentBehavior : MonoBehaviour {
         if (!tinfoilHatActive)
         {
             panicCounter = panicCounter + appliedPanic;
-            animator.SetFloat("speed", 0.5f + Mathf.Floor(panicCounter/20));
+            animator.speed = 0.5f + Mathf.Floor(panicCounter / 20);
         }
     }
 
