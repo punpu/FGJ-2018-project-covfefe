@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212649757635051444}
   - component: {fileID: 114460898758835106}
   - component: {fileID: 114405516100448252}
-  - component: {fileID: 114093242343576618}
   m_Layer: 0
   m_Name: spy
   m_TagString: Transmitter
@@ -43,18 +42,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114093242343576618
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1940255340920784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ddaa7e8673724f8886abf9fa13b1fd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTransmitting: 0
 --- !u!114 &114405516100448252
 MonoBehaviour:
   m_ObjectHideFlags: 1

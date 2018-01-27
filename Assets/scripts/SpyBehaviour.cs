@@ -36,7 +36,7 @@ public class SpyBehaviour : MonoBehaviour {
     void Start () {
         isActive = false;
         president = GameObject.FindGameObjectWithTag("president");
-        panicCount = 2;
+        panicCount = 50;
     }
 	
 	// Update is called once per frame
@@ -50,7 +50,11 @@ public class SpyBehaviour : MonoBehaviour {
 
             if (currentPeriod < 0f)
             {
-                Transmit();
+                if(president.transform.position == transform.position)
+                {
+                    Transmit();
+                    Deactivate();
+                }
                 currentPeriod = periodMax;
             }
         }
