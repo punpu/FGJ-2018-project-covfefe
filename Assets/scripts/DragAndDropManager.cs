@@ -81,20 +81,28 @@ public class DragAndDropManager : MonoBehaviour
         if (touches.Length > 0)
         {
             RaycastHit2D targetHit = new RaycastHit2D();
+            RaycastHit2D presidentHit = new RaycastHit2D();
             for (int i = 0; i < touches.Length; i++)
             {
                 if (touches[i].transform.CompareTag("DragAndDropTarget"))
                 {
                     targetHit = touches[i];
-                    break;
+                }
+                if (touches[i].transform.CompareTag("president"))
+                {
+                    presidentHit = touches[i];
                 }
             }
             
             if(targetHit.transform != null )
             {
                 Debug.Log("drag and drop target hit");
-                Debug.Log(targetHit.transform);
                 targetHit.transform.SendMessage("OnItemUse", draggedItem);
+            }
+            if (presidentHit.transform != null)
+            {
+                Debug.Log("president hit");
+                presidentHit.transform.SendMessage("OnItemUse", draggedItem);
             }
         }
         
