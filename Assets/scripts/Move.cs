@@ -20,9 +20,9 @@ public class Move : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        location.x = location.x + (float)0.001;
-        location.y = location.y + (float)0.001;
-        MoveTo();
+        //location.x = location.x + (float)0.001;
+        //location.y = location.y + (float)0.001;
+        //MoveTo();
 	}
 
     void MoveTo ()
