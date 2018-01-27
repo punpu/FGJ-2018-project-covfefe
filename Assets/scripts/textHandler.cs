@@ -22,20 +22,20 @@ public class textHandler : MonoBehaviour
 	{
 		new Word {Text = "satellite", Target = "satellite"},
 		new Word {Text = "spy", Target = "spy"},
-		new Word {Text = "marsu"},
-		new Word {Text = "olavi"},
+		new Word {Text = "marsu", Target = "television"},
+		new Word {Text = "olavi", Target = "telephone"},
 		new Word {Text = "satelliitti", Target = "satellite"},
 		new Word {Text = "mursu", Target = "spy"},
-		new Word {Text = "ilmari"},
-		new Word {Text = "jarno"},
+		new Word {Text = "ilmari", Target = "televisio"},
+		new Word {Text = "jarno", Target = "telephone"},
 		new Word {Text = "kuu", Target = "satellite"},
-		new Word {Text = "japani", Target = "spy"},
-		new Word {Text = "kanada"},
-		new Word {Text = "karstula"},
+		new Word {Text = "japani", Target = "television"},
+		new Word {Text = "kanada", Target = "telephone"},
+		new Word {Text = "karstula", Target = "spy"},
 		new Word {Text = "tommi lantinen", Target = "satellite"},
 		new Word {Text = "huhuu", Target = "spy"},
-		new Word {Text = "tirppa"},
-		new Word {Text = "hullu"}
+		new Word {Text = "tirppa", Target = "television"},
+		new Word {Text = "hullu", Target = "telephone"}
 		
 	};
 
