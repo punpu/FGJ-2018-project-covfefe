@@ -7,6 +7,7 @@ public class SatelliteBehaviour : MonoBehaviour {
     private float nextActionTime = 0.0f;
     public float currentPeriod = 0f;
     public float periodMax = 1f;
+    public float moveSpeed = 2f;
 
     public GameObject president;
 
@@ -21,30 +22,17 @@ public class SatelliteBehaviour : MonoBehaviour {
     {
         president.SendMessage("ApplyPanic", panicCount);
     }
-
-    // A suspicious satellite appears
-    private void Descend()
-    {
-        transform.Translate(activePosition);
-    }
-
-    // Satellite disappears
-    private void Ascend()
-    {
-        transform.Translate(hiddenPosition);
-    }
+    
 
     // Call when president gon get rekt
     void Activate()
     {
-        Descend();
         isActive = true;
     }
 
     void Deactivate()
     {
         isActive = false;
-        Ascend();
     }
 
     // Use this for initialization
@@ -59,6 +47,9 @@ public class SatelliteBehaviour : MonoBehaviour {
 
         if (isActive)
         {
+            float step = moveSpeed * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, activePosition, step);
+
             currentPeriod -= Time.deltaTime;
 
             if(currentPeriod < 0f)
@@ -66,6 +57,12 @@ public class SatelliteBehaviour : MonoBehaviour {
                 Transmit();
                 currentPeriod = periodMax;
             }
+        }
+
+        else
+        {
+            float step = moveSpeed * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, hiddenPosition, step);
         }
         
     }
