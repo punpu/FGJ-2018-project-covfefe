@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngineInternal;
 
-namespace DefaultNamespace
-{
+
     public class Word
     {
         public float HitCount { get; set; }
@@ -30,4 +29,3 @@ namespace DefaultNamespace
             CurrentIndex = 0;
         }
     }
-}
