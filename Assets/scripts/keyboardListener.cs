@@ -1,31 +1,28 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 using UnityEngine.VR;
 using System.Linq;
+using Debug = UnityEngine.Debug;
 
 public class keyboardListener : MonoBehaviour
 {
 	private GameObject satellite;
-	private readonly List<Word> demWords = new List<Word>
-	{
-		new Word {Text = "kissa"},
-		new Word {Text = "koira"},
-		new Word {Text = "marsu"},
-		new Word {Text = "olavi"}
-	};
+
+	private List<Word> demWords;
 
 	private string inputWord;
 	
 	// Use this for initialization
 	void Start ()
 	{
-		satellite = GameObject.Find("satellite");
-	}
+		demWords = textHandler.currentWords;
+	}	
 
 //	private void OnGUI()
 //	{
@@ -41,8 +38,6 @@ public class keyboardListener : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Return))
 		{
-			
-			
 			HandleReturn();
 			return;
 		}
@@ -59,8 +54,11 @@ public class keyboardListener : MonoBehaviour
 		{
 			if (word.Text == inputWord && !word.IsSent)
 			{
-				satellite.SendMessage("Activate");
+				var target = GameObject.Find(word.Target);
+				
+				if(target != null) target.SendMessage("Activate");
 				word.IsSent = true;
+				word.textObject.color = Color.red;
 			}
 			else
 			{
@@ -68,6 +66,14 @@ public class keyboardListener : MonoBehaviour
 			}
 		}
 
+		demWords.RemoveAll(x => x.IsSent);
+
+		if (demWords.Count == 0)
+		{
+			textHandler.SetTexts();
+			demWords = textHandler.currentWords;
+		}
+		
 		inputWord = "";
 	}
 
