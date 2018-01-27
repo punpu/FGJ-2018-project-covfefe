@@ -1,4 +1,5 @@
-﻿using System.Collections;
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,7 +42,7 @@ public class SatelliteBehaviour : MonoBehaviour {
         panicCount = 2;
         isActive = false;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
