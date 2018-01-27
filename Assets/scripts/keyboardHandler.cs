@@ -27,27 +27,59 @@ public class keyboardHandler : MonoBehaviour
 
 	private string previousWord;
 
-	private UnityEvent valueChangeEvent;	
+	private string currentChar = "";
 // Use this for initialization
 	void Start () {
 		if (GetComponent<InputField>() != null)
 		{
 			GetComponent<InputField>().onValueChanged.AddListener(delegate { HandleInput(); });
-			
+			GetComponent<InputField>().onEndEdit.AddListener(delegate { HandleSend();});
+			GetComponent<InputField>().Select();
 		}
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		
-	//	HandleInput();
+		if (GetComponent<InputField>() != null)
+		{
+			GetComponent<InputField>().Select();
+		}
 	}
 
-	private void HandleInput()
-	{		
+	private void HandleSend()
+	{
 		var playerInput = GetComponent<InputField>();
-		var currentChar = String.Empty;
+		Debug.Log("SENDE'D");
+		currentChar = "";
+		playerInput.text = "";
+		previousWord = "";
+		playerInput.MoveTextEnd(false);
+		
+		demWords.ElementAt(0).IsSent = true;
+
+		demWords.OrderByDescending(x => x.Points);
+
+		var wordToSend = demWords.First();
+		
+		Debug.Log("Sent Word " + wordToSend.Text);
+		
+		foreach (var word in demWords)
+		{
+			word.Clear();
+		}
+		if(demWords.Count > 0)
+			demWords.RemoveAt(0);
+		else
+		{
+			Debug.Log("NEED MOAR WORDS");
+		}
+		
+		GUI.FocusControl("PlayerTextInput");
+	}
+	private void HandleInput()
+	{	
+		var playerInput = GetComponent<InputField>();
 		
 		if (playerInput == null) return;
 		
@@ -75,30 +107,25 @@ public class keyboardHandler : MonoBehaviour
 
 		foreach (var word in demWords)
 			{
-				if(word.Text.Length >= playerInput.text.Length)
+				if(word.Text.Length >= playerInput.text.Length && !word.IsSent)
 				{
-					if (word.Text.ElementAt(word.currentIndex).ToString() == currentChar)
+					if (word.Text.ElementAt(word.CurrentIndex).ToString() == currentChar)
 					{
 						word.HitCount++;
-						word.currentIndex++;
+						word.CurrentIndex++;
 
 					}
-					else if (word.currentIndex != 0)
+					else if (word.CurrentIndex != 0)
 					{
 						word.MissCount++;
-						word.currentIndex++;
+						word.CurrentIndex++;
 					}
+					
+					word.Points = demWords.ElementAt(0).HitCount / (demWords.ElementAt(0).HitCount + demWords.ElementAt(0).MissCount);
 				}
 			}
 		
 		previousWord = playerInput.text != "" ? playerInput.text : previousWord;
-
-		if (demWords.ElementAt(0).HitCount == 0 && demWords.ElementAt(0).MissCount == 0) return;
-		var hits = demWords.ElementAt(0).HitCount;
-		var misses = demWords.ElementAt(0).MissCount;
-
-		float points = demWords.ElementAt(0).HitCount / (demWords.ElementAt(0).HitCount + demWords.ElementAt(0).MissCount);
-		Debug.Log("Pojot " + points);
 	}
 }
 
