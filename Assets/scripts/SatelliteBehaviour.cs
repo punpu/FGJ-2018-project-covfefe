@@ -31,6 +31,12 @@ public class SatelliteBehaviour : MonoBehaviour {
     // Call when president gon get rekt
     void Activate()
     {
+        // Restrict max panic value of satellite. Very imba MIRri
+        if(panicCount < 8)
+        {
+            panicCount *= 2;
+        }
+        
         isActive = true;
         health = healthMax;
     }
