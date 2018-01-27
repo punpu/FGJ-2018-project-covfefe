@@ -10,6 +10,7 @@ using System.Linq;
 
 public class keyboardListener : MonoBehaviour
 {
+	private GameObject satellite;
 	private readonly List<Word> demWords = new List<Word>
 	{
 		new Word {Text = "kissa"},
@@ -21,7 +22,9 @@ public class keyboardListener : MonoBehaviour
 	private string inputWord;
 	
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
+		satellite = GameObject.Find("satellite");
 	}
 
 //	private void OnGUI()
@@ -38,7 +41,7 @@ public class keyboardListener : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Return))
 		{
-			Debug.Log("entterii");
+			
 			
 			HandleReturn();
 			return;
@@ -50,21 +53,22 @@ public class keyboardListener : MonoBehaviour
 
 	private void HandleReturn()
 	{
-		inputWord = "";
-
+		Debug.Log("entterii");
+		
 		foreach (var word in demWords)
 		{
-			if (word.Text == inputWord)
+			if (word.Text == inputWord && !word.IsSent)
 			{
-				// send shit
-				
-				
+				satellite.SendMessage("Activate");
+				word.IsSent = true;
 			}
 			else
 			{
 				word.Clear();
 			}
 		}
+
+		inputWord = "";
 	}
 
 	private void HandleText(string character)
