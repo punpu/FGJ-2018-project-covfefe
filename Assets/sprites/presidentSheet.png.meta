@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 34d5292372e3d440584a82ee473e4057
-timeCreated: 1517065717
+timeCreated: 1517071731
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: presidentSheet_1
     21300004: presidentSheet_2
     21300006: presidentSheet_3
+    21300008: presidentSheet_4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -50,7 +51,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 140
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -87,12 +88,12 @@ TextureImporter:
       name: presidentSheet_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 0
-        width: 220
-        height: 362
+        width: 222
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -101,12 +102,12 @@ TextureImporter:
       name: presidentSheet_1
       rect:
         serializedVersion: 2
-        x: 220
+        x: 234
         y: 0
-        width: 220
-        height: 362
+        width: 222
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -115,12 +116,12 @@ TextureImporter:
       name: presidentSheet_2
       rect:
         serializedVersion: 2
-        x: 440
+        x: 484
         y: 0
-        width: 220
-        height: 362
+        width: 222
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,12 +130,26 @@ TextureImporter:
       name: presidentSheet_3
       rect:
         serializedVersion: 2
-        x: 660
+        x: 723
         y: 0
-        width: 220
-        height: 362
+        width: 223
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: presidentSheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 211
+        width: 20
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

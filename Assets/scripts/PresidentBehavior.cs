@@ -17,11 +17,12 @@ public class PresidentBehavior : MonoBehaviour {
     private float randomX;
     private float randomY;
     private GameObject[] transmitters;
+    private Animator animator;
 
 	// Use this for initialization
 	void Start () {
         transmitters = GameObject.FindGameObjectsWithTag(transmitterTag);
-        Debug.Log(transmitters);
+        animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -29,6 +30,8 @@ public class PresidentBehavior : MonoBehaviour {
         GameObject activeTransmitter = GetClosestActiveTransmitter();
         if (activeTransmitter != null) {
             float step = moveSpeed * Time.deltaTime;
+            bool isMovingLeft = transform.position.x <= activeTransmitter.transform.position.x;
+            animator.SetBool("isMovingLeft", isMovingLeft);
             transform.position = Vector2.MoveTowards(transform.position, activeTransmitter.transform.position, step);
         }
         else {
@@ -40,6 +43,8 @@ public class PresidentBehavior : MonoBehaviour {
                 tChange = Time.time + Random.Range(minTime, maxTime);
             }
             float step = moveSpeed * Time.deltaTime;
+            bool isMovingLeft = transform.position.x <= randomX;
+            animator.SetBool("isMovingLeft", isMovingLeft);
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(randomX, randomY), step);
         }
     }
