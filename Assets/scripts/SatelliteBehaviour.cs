@@ -5,7 +5,8 @@ using UnityEngine;
 public class SatelliteBehaviour : MonoBehaviour {
 
     private float nextActionTime = 0.0f;
-    public float period = 0.1f;
+    public float currentPeriod = 0f;
+    public float periodMax = 1f;
 
     public GameObject president;
 
@@ -49,19 +50,23 @@ public class SatelliteBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start () {
         president = GameObject.FindGameObjectWithTag("president");
-        panicCount = 69;
+        panicCount = 2;
         isActive = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Time.time > nextActionTime)
+
+        if (isActive)
         {
-            nextActionTime += period;
-            if (isActive)
+            currentPeriod -= Time.deltaTime;
+
+            if(currentPeriod < 0f)
             {
                 Transmit();
+                currentPeriod = periodMax;
             }
         }
+        
     }
 }
