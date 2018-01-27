@@ -51,3 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2738d18a1455a744bb47bfa515b9d4e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  president: {fileID: 0}
+  presidentBehavior: {fileID: 0}
+  dayTimer: 0
+  dayLength: 120
