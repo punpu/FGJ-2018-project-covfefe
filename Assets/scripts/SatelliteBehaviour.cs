@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +8,10 @@ public class SatelliteBehaviour : MonoBehaviour {
     public float currentPeriod = 0f;
     public float periodMax = 1f;
     public float moveSpeed = 2f;
+
+    public int health = 0;
+    public int healthMax = 5;
+
 
     public GameObject president;
 
@@ -29,6 +32,7 @@ public class SatelliteBehaviour : MonoBehaviour {
     void Activate()
     {
         isActive = true;
+        health = healthMax;
     }
 
     void Deactivate()
@@ -42,7 +46,7 @@ public class SatelliteBehaviour : MonoBehaviour {
         panicCount = 2;
         isActive = false;
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
 
@@ -67,4 +71,18 @@ public class SatelliteBehaviour : MonoBehaviour {
         }
         
     }
+
+
+    void OnMouseDown()
+    {
+        if (isActive)
+        {
+            health--;
+            if(health <= 0)
+            {
+                Deactivate();
+            }
+        }
+    }
+
 }
