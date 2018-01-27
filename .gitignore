@@ -32,3 +32,10 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/scripts/.idea/.idea.keyboardHandler/riderModule.iml
+Assets/scripts/.idea/.idea.keyboardHandler/.idea/workspace.xml
+Assets/scripts/.idea/.idea.keyboardHandler/.idea/modules.xml
+Assets/scripts/.idea/.idea.keyboardHandler/.idea/indexLayout.xml
+Assets/scripts/.idea/.idea.keyboardHandler/.idea/contentModel.xml
+Assets/scripts/.idea/.idea.keyboardHandler/.idea/.name
+.idea/
