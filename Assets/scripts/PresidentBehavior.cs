@@ -12,6 +12,7 @@ public class PresidentBehavior : MonoBehaviour {
 	public float maxTime = 1.5f;
 	public float moveSpeed = 1;
     public string transmitterTag = "Transmitter";
+    public bool tinfoilHatActive = false;
 
 	private float tChange = 0;
     private float randomX;
@@ -19,11 +20,17 @@ public class PresidentBehavior : MonoBehaviour {
     private GameObject[] transmitters;
     private Animator animator;
 
-	// Use this for initialization
-	void Start () {
+    private Transform tinfoilHat;
+
+    public float panicCounter;
+    
+    // Use this for initialization
+    void Start () {
         transmitters = GameObject.FindGameObjectsWithTag(transmitterTag);
         animator = GetComponent<Animator>();
-	}
+        Debug.Log(transmitters);
+        tinfoilHat = transform.Find("tinfoilHat");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -64,4 +71,37 @@ public class PresidentBehavior : MonoBehaviour {
            ).ToList();
         return activeTransmitters.Any() ? activeTransmitters[0] : null;
     }
+
+    // Called when an item is dragged on the president
+    public void OnItemUse(GameObject item)
+    {
+        if (item.name == "TinfoilHat")
+        {
+            item.SendMessage("SetOnCooldown");
+            tinfoilHat.gameObject.SetActive(true);
+            tinfoilHatActive = true;
+            StartCoroutine(RemoveTinfoilHatAfter5Seconds());
+        }
+        else
+        {
+            Debug.Log("President wants the tinfoilhat!");
+        }
+    }
+
+    public void ApplyPanic(float appliedPanic)
+    {
+        if (!tinfoilHatActive)
+        {
+            panicCounter = panicCounter + appliedPanic;
+        }
+        
+    }
+
+    IEnumerator RemoveTinfoilHatAfter5Seconds()
+    {
+        yield return new WaitForSeconds(5);
+        tinfoilHat.gameObject.SetActive(false);
+        tinfoilHatActive = false;
+    }
+
 }
