@@ -5,8 +5,8 @@ namespace DefaultNamespace
 {
     public class Word
     {
-        public int HitCount { get; set; }
-        public int MissCount { get; set; }
+        public float HitCount { get; set; }
+        public float MissCount { get; set; }
         public string Text { get; set; }
         public int currentIndex { get; set; }
         public Word()
