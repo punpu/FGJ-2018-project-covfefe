@@ -5,7 +5,7 @@ using UnityEngine;
 public class DragAndDropManager : MonoBehaviour
 {
     private bool draggingItem = false;
-    private GameObject draggedObject;
+    private GameObject draggedItem;
     private Vector2 touchOffset;
     private Vector3 draggedObjectScale;
     private Vector3 draggedObjectStartPos;
@@ -41,7 +41,7 @@ public class DragAndDropManager : MonoBehaviour
 
         if (draggingItem)
         {
-            draggedObject.transform.position = inputPosition + touchOffset;
+            draggedItem.transform.position = inputPosition + touchOffset;
         }
         else
         {
@@ -50,15 +50,15 @@ public class DragAndDropManager : MonoBehaviour
             {
                 var hit = touches[0];
 
-                if (hit.transform != null && hit.transform.gameObject.CompareTag("InventoryItem"))
+                if (hit.transform != null && hit.transform.gameObject.CompareTag("InventoryItem") && hit.transform.GetComponent<IItemInterface>().OnCooldown == false)
                 {
                     draggingItem = true;
-                    draggedObject = hit.transform.gameObject;
-                    draggedObjectScale = draggedObject.transform.localScale;
-                    draggedObjectStartPos = draggedObject.transform.position;
+                    draggedItem = hit.transform.gameObject;
+                    draggedObjectScale = draggedItem.transform.localScale;
+                    draggedObjectStartPos = draggedItem.transform.position;
 
                     touchOffset = (Vector2)hit.transform.position - inputPosition;
-                    draggedObject.transform.localScale = new Vector3(draggedObjectScale.x * 1.2f, draggedObjectScale.y * 1.2f);
+                    draggedItem.transform.localScale = new Vector3(draggedObjectScale.x * 1.2f, draggedObjectScale.y * 1.2f);
                 }
             }
         }
@@ -75,9 +75,32 @@ public class DragAndDropManager : MonoBehaviour
 
     void DropItem()
     {
+        var inputPosition = CurrentTouchPosition;
+
+        RaycastHit2D[] touches = Physics2D.RaycastAll(inputPosition, inputPosition, 0.5f);
+        if (touches.Length > 0)
+        {
+            RaycastHit2D targetHit = new RaycastHit2D();
+            for (int i = 0; i < touches.Length; i++)
+            {
+                if (touches[i].transform.CompareTag("DragAndDropTarget"))
+                {
+                    targetHit = touches[i];
+                    break;
+                }
+            }
+            
+            if(targetHit.transform != null )
+            {
+                Debug.Log("drag and drop target hit");
+                Debug.Log(targetHit.transform);
+                targetHit.transform.SendMessage("OnItemUse", draggedItem);
+            }
+        }
+        
         draggingItem = false;
-        draggedObject.transform.localScale = draggedObjectScale;
-        draggedObject.transform.position = draggedObjectStartPos;
-        draggedObject = null;
+        draggedItem.transform.localScale = draggedObjectScale;
+        draggedItem.transform.position = draggedObjectStartPos;
+        draggedItem = null;
     }
 }
