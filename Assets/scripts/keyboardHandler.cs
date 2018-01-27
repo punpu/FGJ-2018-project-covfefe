@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
-using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 using UnityEngine.Events;
@@ -24,7 +23,7 @@ public class keyboardHandler : MonoBehaviour
 		new Word {Text = "marsu"},
 		new Word {Text = "olavi"}
 	};
-
+ 	
 	private string previousWord;
 
 	private string currentChar = "";
