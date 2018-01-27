@@ -427,6 +427,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 114798750685929244, guid: e6a1ff6dff96e4d4dad6c9700bdd4fa1,
+        type: 2}
+      propertyPath: dayLength
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6a1ff6dff96e4d4dad6c9700bdd4fa1, type: 2}
   m_IsPrefabParent: 0
@@ -558,12 +563,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 212261901750319408, guid: 01e9f922c01381949b296a6e2b76809b,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 692edd4959f8c1e43aa769e7200b62f9,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01e9f922c01381949b296a6e2b76809b, type: 2}
   m_IsPrefabParent: 0
