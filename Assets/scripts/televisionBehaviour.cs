@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpyBehaviour : MonoBehaviour {
+public class televisionBehaviour : MonoBehaviour {
 
     private float nextActionTime = 0.0f;
     public float currentPeriod = 0f;
@@ -33,14 +33,16 @@ public class SpyBehaviour : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         isActive = false;
         president = GameObject.FindGameObjectWithTag("president");
         panicCount = 50;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (isActive)
         {
             float step = moveSpeed * Time.deltaTime;
@@ -50,7 +52,7 @@ public class SpyBehaviour : MonoBehaviour {
 
             if (currentPeriod < 0f)
             {
-                if(president.transform.position == transform.position)
+                if (president.transform.position == transform.position)
                 {
                     Transmit();
                     Deactivate();

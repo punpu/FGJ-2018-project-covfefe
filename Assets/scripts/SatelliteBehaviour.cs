@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +8,10 @@ public class SatelliteBehaviour : MonoBehaviour {
     public float currentPeriod = 0f;
     public float periodMax = 1f;
     public float moveSpeed = 2f;
+
+    public int health = 0;
+    public int healthMax = 5;
+
 
     public GameObject president;
 
@@ -27,7 +31,14 @@ public class SatelliteBehaviour : MonoBehaviour {
     // Call when president gon get rekt
     void Activate()
     {
+        // Restrict max panic value of satellite. Very imba MIRri
+        if(panicCount < 8)
+        {
+            panicCount *= 2;
+        }
+        
         isActive = true;
+        health = healthMax;
     }
 
     void Deactivate()
@@ -66,4 +77,18 @@ public class SatelliteBehaviour : MonoBehaviour {
         }
         
     }
+
+
+    void OnMouseDown()
+    {
+        if (isActive)
+        {
+            health--;
+            if(health <= 0)
+            {
+                Deactivate();
+            }
+        }
+    }
+
 }

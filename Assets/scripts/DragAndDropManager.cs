@@ -50,6 +50,7 @@ public class DragAndDropManager : MonoBehaviour
             {
                 var hit = touches[0];
 
+                // Pickup inventory item for drag and drop
                 if (hit.transform != null && hit.transform.gameObject.CompareTag("InventoryItem") && hit.transform.GetComponent<IItemInterface>().OnCooldown == false)
                 {
                     draggingItem = true;
@@ -84,7 +85,7 @@ public class DragAndDropManager : MonoBehaviour
             RaycastHit2D presidentHit = new RaycastHit2D();
             for (int i = 0; i < touches.Length; i++)
             {
-                if (touches[i].transform.CompareTag("DragAndDropTarget"))
+                if (touches[i].transform.CompareTag("Transmitter"))
                 {
                     targetHit = touches[i];
                 }

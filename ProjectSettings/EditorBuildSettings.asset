@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/menuScene.unity
+    guid: add6754ae932b4f338490585bc21a554
+  - enabled: 1
+    path: Assets/ovalOfficeScene.unity
+    guid: e0284c87f9d988e44b8f8d6ae368ab48
+  - enabled: 1
+    path: Assets/BadEndingScene.unity
+    guid: 2b0ec612b4783457e834c1f14fb1790e
