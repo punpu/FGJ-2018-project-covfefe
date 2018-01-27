@@ -13,9 +13,10 @@ public class SatelliteBehaviour : MonoBehaviour {
     public Vector2 hiddenPosition;
 
     public float panicCount;
+    public bool isActive;
 
     // Interacts with the president
-    private void Transmit(bool toggle)
+    private void Transmit()
     {
         president.SendMessage("ApplyPanic", panicCount);
     }
@@ -36,20 +37,20 @@ public class SatelliteBehaviour : MonoBehaviour {
     void Activate()
     {
         Descend();
-        Transmit(true);
+        isActive = true;
     }
 
     void Deactivate()
     {
+        isActive = false;
         Ascend();
-        Transmit(false);
     }
 
     // Use this for initialization
     void Start () {
         president = GameObject.FindGameObjectWithTag("president");
         panicCount = 69;
-
+        isActive = false;
 	}
 	
 	// Update is called once per frame
@@ -57,7 +58,10 @@ public class SatelliteBehaviour : MonoBehaviour {
         if (Time.time > nextActionTime)
         {
             nextActionTime += period;
-            Transmit(true);
+            if (isActive)
+            {
+                Transmit();
+            }
         }
     }
 }
