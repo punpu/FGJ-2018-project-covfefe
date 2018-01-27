@@ -18,6 +18,7 @@ public class PresidentBehavior : MonoBehaviour {
     private float randomX;
     private float randomY;
     private GameObject[] transmitters;
+    private Animator animator;
 
     private Transform tinfoilHat;
 
@@ -26,6 +27,7 @@ public class PresidentBehavior : MonoBehaviour {
     // Use this for initialization
     void Start () {
         transmitters = GameObject.FindGameObjectsWithTag(transmitterTag);
+        animator = GetComponent<Animator>();
         Debug.Log(transmitters);
         tinfoilHat = transform.Find("tinfoilHat");
     }
@@ -35,6 +37,8 @@ public class PresidentBehavior : MonoBehaviour {
         GameObject activeTransmitter = GetClosestActiveTransmitter();
         if (activeTransmitter != null) {
             float step = moveSpeed * Time.deltaTime;
+            bool isMovingLeft = transform.position.x <= activeTransmitter.transform.position.x;
+            animator.SetBool("isMovingLeft", isMovingLeft);
             transform.position = Vector2.MoveTowards(transform.position, activeTransmitter.transform.position, step);
         }
         else {
@@ -46,6 +50,8 @@ public class PresidentBehavior : MonoBehaviour {
                 tChange = Time.time + Random.Range(minTime, maxTime);
             }
             float step = moveSpeed * Time.deltaTime;
+            bool isMovingLeft = transform.position.x <= randomX;
+            animator.SetBool("isMovingLeft", isMovingLeft);
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(randomX, randomY), step);
         }
     }
@@ -87,8 +93,8 @@ public class PresidentBehavior : MonoBehaviour {
         if (!tinfoilHatActive)
         {
             panicCounter = panicCounter + appliedPanic;
+            animator.SetFloat("speed", 0.5f + Mathf.Floor(panicCounter/20));
         }
-        
     }
 
     IEnumerator RemoveTinfoilHatAfter5Seconds()
