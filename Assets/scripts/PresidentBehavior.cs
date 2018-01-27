@@ -18,11 +18,14 @@ public class PresidentBehavior : MonoBehaviour {
     private float randomY;
     private GameObject[] transmitters;
 
-	// Use this for initialization
-	void Start () {
+    private Transform tinfoilHat;
+
+    // Use this for initialization
+    void Start () {
         transmitters = GameObject.FindGameObjectsWithTag(transmitterTag);
         Debug.Log(transmitters);
-	}
+        tinfoilHat = transform.Find("tinfoilHat");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -59,4 +62,27 @@ public class PresidentBehavior : MonoBehaviour {
            ).ToList();
         return activeTransmitters.Any() ? activeTransmitters[0] : null;
     }
+
+    // Called when an item is dragged on the president
+    public void OnItemUse(GameObject item)
+    {
+        if (item.name == "TinfoilHat")
+        {
+            item.SendMessage("SetOnCooldown");
+            tinfoilHat.gameObject.SetActive(true);
+            StartCoroutine(RemoveTinfoilHatAfter5Seconds());
+        }
+        else
+        {
+            Debug.Log("President wants the tinfoilhat!");
+        }
+    }
+
+
+    IEnumerator RemoveTinfoilHatAfter5Seconds()
+    {
+        yield return new WaitForSeconds(5);
+        tinfoilHat.gameObject.SetActive(false);
+    }
+
 }
