@@ -19,12 +19,16 @@ public class loudspeakerBehaviour : MonoBehaviour {
     {
         gameObject.GetComponent<TransmitterBehavior>().isTransmitting = true;
         isActive = true;
+        GetComponentInChildren<AudioSource>().Play();
+
     }
 
     public void Deactivate()
     {
         gameObject.GetComponent<TransmitterBehavior>().isTransmitting = false;
         isActive = false;
+        GetComponentInChildren<AudioSource>().Stop();
+
     }
 
     public void Transmit()

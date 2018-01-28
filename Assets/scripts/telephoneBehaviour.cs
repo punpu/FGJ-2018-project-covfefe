@@ -23,12 +23,15 @@ public class telephoneBehaviour : MonoBehaviour {
         gameObject.GetComponent<TransmitterBehavior>().isTransmitting = true;
         isActive = true;
         health = healthMax;
+        GetComponentInChildren<AudioSource>().loop = true;
+        GetComponentInChildren<AudioSource>().Play();
     }
 
-    public void Deactivate()
+    public void Deactivate()    
     {
         gameObject.GetComponent<TransmitterBehavior>().isTransmitting = false;
         isActive = false;
+        GetComponentInChildren<AudioSource>().loop = false;   
     }
 
     public void Transmit()
