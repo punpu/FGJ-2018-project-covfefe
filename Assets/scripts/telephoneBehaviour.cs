@@ -88,6 +88,7 @@ public class telephoneBehaviour : MonoBehaviour {
     {
         if (isActive)
         {
+            GameObject.Find("hitSound").GetComponentInChildren<AudioSource>().Play();
             health--;
             if (health <= 0)
             {
