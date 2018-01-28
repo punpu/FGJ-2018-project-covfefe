@@ -14,11 +14,11 @@ public class PresidentBehavior : MonoBehaviour {
     public string transmitterTag = "Transmitter";
     public bool tinfoilHatActive = false;
 
-    public float randomX;
-    public float randomY;
+	private float tChange = 0;
+    private float randomX;
+    private float randomY;
     private GameObject[] transmitters;
     private Animator animator;
-    private Vector3 randomTarget;
 
     private Transform tinfoilHat;
 
@@ -30,9 +30,6 @@ public class PresidentBehavior : MonoBehaviour {
         animator = GetComponent<Animator>();
         Debug.Log(transmitters);
         tinfoilHat = transform.Find("tinfoilHat");
-        randomX = Random.Range(minX, maxX);
-        randomY = Random.Range(minY, maxY);
-        randomTarget = new Vector3(randomX, randomY, 0);
     }
 	
 	// Update is called once per frame
@@ -45,15 +42,17 @@ public class PresidentBehavior : MonoBehaviour {
             transform.position = Vector2.MoveTowards(transform.position, activeTransmitter.transform.position, step);
         }
         else {
-            if (transform.position == randomTarget) {
-                randomX = Random.Range(minX, maxX);
+            // Random direction at random intervals
+            if (Time.time >= tChange)
+            {
+                randomX = Random.Range(minX, maxY);
                 randomY = Random.Range(minY, maxY);
-                randomTarget = new Vector3(randomX, randomY, 0);
+                tChange = Time.time + Random.Range(minTime, maxTime);
             }
             float step = moveSpeed * Time.deltaTime;
             bool isMovingLeft = transform.position.x <= randomX;
             animator.SetBool("isMovingLeft", isMovingLeft);
-            transform.position = Vector2.MoveTowards(transform.position, randomTarget, step);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(randomX, randomY), step);
         }
     }
 

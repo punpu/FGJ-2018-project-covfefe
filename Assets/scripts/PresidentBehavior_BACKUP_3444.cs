@@ -30,9 +30,12 @@ public class PresidentBehavior : MonoBehaviour {
         animator = GetComponent<Animator>();
         Debug.Log(transmitters);
         tinfoilHat = transform.Find("tinfoilHat");
+<<<<<<< HEAD
+=======
         randomX = Random.Range(minX, maxX);
         randomY = Random.Range(minY, maxY);
         randomTarget = new Vector3(randomX, randomY, 0);
+>>>>>>> master
     }
 	
 	// Update is called once per frame
@@ -95,6 +98,7 @@ public class PresidentBehavior : MonoBehaviour {
         {
             panicCounter = panicCounter + appliedPanic;
             animator.speed = 0.5f + Mathf.Floor(panicCounter / 20);
+            GetComponentInChildren<AudioSource>().Play();
         }
     }
 

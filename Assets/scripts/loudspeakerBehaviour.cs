@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpyBehaviour : MonoBehaviour {
+public class loudspeakerBehaviour : MonoBehaviour {
 
     private float nextActionTime = 0.0f;
     public float currentPeriod = 0f;
     public float periodMax = 1f;
     public float moveSpeed = 2f;
-
-    public int health = 0;
-    public int healthMax = 10;
 
     public bool isActive;
     public GameObject president;
@@ -22,7 +19,6 @@ public class SpyBehaviour : MonoBehaviour {
     {
         gameObject.GetComponent<TransmitterBehavior>().isTransmitting = true;
         isActive = true;
-        health = healthMax;
     }
 
     public void Deactivate()
@@ -37,14 +33,16 @@ public class SpyBehaviour : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         isActive = false;
         president = GameObject.FindGameObjectWithTag("president");
         panicCount = 50;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (isActive)
         {
             float step = moveSpeed * Time.deltaTime;
@@ -54,7 +52,7 @@ public class SpyBehaviour : MonoBehaviour {
 
             if (currentPeriod < 0f)
             {
-                if(president.transform.position == transform.position)
+                if (president.transform.position == transform.position)
                 {
                     Transmit();
                     Deactivate();
@@ -67,29 +65,6 @@ public class SpyBehaviour : MonoBehaviour {
         {
             float step = moveSpeed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, hiddenPosition, step);
-        }
-    }
-
-
-    public void OnItemUse(GameObject item)
-    {
-        if (item.name == "Pistol")
-        {
-            item.SendMessage("SetOnCooldown");
-            Deactivate();
-        }
-    }
-
-
-    void OnMouseDown()
-    {
-        if (isActive)
-        {
-            health--;
-            if (health <= 0)
-            {
-                Deactivate();
-            }
         }
     }
 }
