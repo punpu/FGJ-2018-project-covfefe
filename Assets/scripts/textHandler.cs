@@ -78,7 +78,6 @@ public class textHandler : MonoBehaviour
 		if (Words.Count <= 0) return;
 		var indx = Random.Range(0, Words.Count - 1);
 		uiText.text = Words.ElementAt(indx).Text;
-		uiText.color = Color.black;
 		Words.ElementAt(indx).textObject = uiText;
 		currentWords.Add(Words.ElementAt(indx));
 		Words.RemoveAt(indx);
