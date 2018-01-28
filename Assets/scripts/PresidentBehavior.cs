@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PresidentBehavior : MonoBehaviour {
 	public float minX;
@@ -13,6 +14,9 @@ public class PresidentBehavior : MonoBehaviour {
 	public float moveSpeed = 1;
     public string transmitterTag = "Transmitter";
     public bool tinfoilHatActive = false;
+
+    public Text talkBubbleText;
+    public GameObject talkBubble;
 
 	private float tChange = 0;
     private float randomX;
@@ -30,6 +34,8 @@ public class PresidentBehavior : MonoBehaviour {
         animator = GetComponent<Animator>();
         Debug.Log(transmitters);
         tinfoilHat = transform.Find("tinfoilHat");
+
+        StartCoroutine(ShowTalkBubbleMessageFor3Seconds("ASD!"));
     }
 	
 	// Update is called once per frame
@@ -102,6 +108,14 @@ public class PresidentBehavior : MonoBehaviour {
         yield return new WaitForSeconds(5);
         tinfoilHat.gameObject.SetActive(false);
         tinfoilHatActive = false;
+    }
+
+    IEnumerator ShowTalkBubbleMessageFor3Seconds(string text)
+    {
+        talkBubbleText.text = text;
+        talkBubble.SetActive(true);
+        yield return new WaitForSeconds(3);
+        talkBubble.SetActive(false);
     }
 
 }
