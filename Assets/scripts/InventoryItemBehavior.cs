@@ -42,5 +42,7 @@ public class InventoryItemBehavior : MonoBehaviour, IItemInterface {
         cooldownRemaining = cooldownMax;
         OnCooldown = true;
         spriteRenderer.enabled = false;
+        if(GetComponentInChildren<AudioSource>()!= null)    
+            GetComponentInChildren<AudioSource>().Play();
     }
 }
