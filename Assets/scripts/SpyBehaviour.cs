@@ -9,6 +9,9 @@ public class SpyBehaviour : MonoBehaviour {
     public float periodMax = 1f;
     public float moveSpeed = 2f;
 
+    public int health = 0;
+    public int healthMax = 10;
+
     public bool isActive;
     public GameObject president;
     public Vector2 activePosition;
@@ -19,6 +22,7 @@ public class SpyBehaviour : MonoBehaviour {
     {
         gameObject.GetComponent<TransmitterBehavior>().isTransmitting = true;
         isActive = true;
+        health = healthMax;
     }
 
     public void Deactivate()
@@ -63,6 +67,29 @@ public class SpyBehaviour : MonoBehaviour {
         {
             float step = moveSpeed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, hiddenPosition, step);
+        }
+    }
+
+
+    public void OnItemUse(GameObject item)
+    {
+        if (item.name == "Pistol")
+        {
+            item.SendMessage("SetOnCooldown");
+            Deactivate();
+        }
+    }
+
+
+    void OnMouseDown()
+    {
+        if (isActive)
+        {
+            health--;
+            if (health <= 0)
+            {
+                Deactivate();
+            }
         }
     }
 }
