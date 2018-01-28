@@ -70,6 +70,7 @@ public class textHandler : MonoBehaviour
 
 	private static void addWord(Text uiText)
 	{
+		if (Words.Count <= 0) return;
 		var indx = Random.Range(0, Words.Count - 1);
 		uiText.text = Words.ElementAt(indx).Text;
 		uiText.color = Color.black;

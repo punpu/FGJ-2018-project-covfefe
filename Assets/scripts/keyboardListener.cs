@@ -47,9 +47,7 @@ public class keyboardListener : MonoBehaviour
 	}
 
 	private void HandleReturn()
-	{
-		Debug.Log("entterii");
-		
+	{	
 		foreach (var word in demWords)
 		{
 			if (word.Text == inputWord && !word.IsSent)
@@ -78,9 +76,7 @@ public class keyboardListener : MonoBehaviour
 	}
 
 	private void HandleText(string character)
-	{
-		Debug.Log("merrki " + character);
-		
+	{	
 		inputWord = inputWord + character;
 
 		foreach (var word in demWords)
@@ -99,11 +95,8 @@ public class keyboardListener : MonoBehaviour
 					word.CurrentIndex++;
 				}
 					
-				
 				word.Points = word.HitCount / (word.HitCount + word.MissCount);
 			}
 		}
-		
-		Debug.Log("stringi " + inputWord );
 	}
 }
