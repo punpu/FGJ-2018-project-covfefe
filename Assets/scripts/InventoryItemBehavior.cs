@@ -8,6 +8,8 @@ public class InventoryItemBehavior : MonoBehaviour, IItemInterface {
     public float cooldownRemaining = 0f;
     public bool OnCooldown = false;
 
+    public SpriteRenderer spriteRenderer;
+
     bool IItemInterface.OnCooldown
     {
         get
@@ -18,7 +20,7 @@ public class InventoryItemBehavior : MonoBehaviour, IItemInterface {
 
     // Use this for initialization
     void Start () {
-		
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -30,6 +32,7 @@ public class InventoryItemBehavior : MonoBehaviour, IItemInterface {
         else
         {
             OnCooldown = false;
+            spriteRenderer.enabled = true;
         }
 	}
 
@@ -38,5 +41,6 @@ public class InventoryItemBehavior : MonoBehaviour, IItemInterface {
         Debug.Log("I'm on cooldown!");
         cooldownRemaining = cooldownMax;
         OnCooldown = true;
+        spriteRenderer.enabled = false;
     }
 }
