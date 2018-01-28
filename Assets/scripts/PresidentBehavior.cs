@@ -19,23 +19,38 @@ public class PresidentBehavior : MonoBehaviour {
     public GameObject talkBubble;
 
 	private float tChange = 0;
-    private float randomX;
-    private float randomY;
+    public float randomX;
+    public float randomY;
+
     private GameObject[] transmitters;
     private Animator animator;
+    private Vector3 randomTarget;
 
     private Transform tinfoilHat;
 
     public float panicCounter;
-    
+
+
+    string[] talkBubbleWordList;
+
+
+
     // Use this for initialization
     void Start () {
+        talkBubbleWordList = new[] { "Fake news!", "CHYNA!", "SAD!", "Build the wall!" };
+
         transmitters = GameObject.FindGameObjectsWithTag(transmitterTag);
         animator = GetComponent<Animator>();
         Debug.Log(transmitters);
         tinfoilHat = transform.Find("tinfoilHat");
 
-        StartCoroutine(ShowTalkBubbleMessageFor3Seconds("ASD!"));
+        
+        InvokeRepeating("ShowTalkBubble", 5.0f, 10f);
+
+        tinfoilHat = transform.Find("tinfoilHat");
+        randomX = Random.Range(minX, maxX);
+        randomY = Random.Range(minY, maxY);
+        randomTarget = new Vector3(randomX, randomY, 0);
     }
 	
 	// Update is called once per frame
@@ -48,17 +63,15 @@ public class PresidentBehavior : MonoBehaviour {
             transform.position = Vector2.MoveTowards(transform.position, activeTransmitter.transform.position, step);
         }
         else {
-            // Random direction at random intervals
-            if (Time.time >= tChange)
-            {
-                randomX = Random.Range(minX, maxY);
+            if (transform.position == randomTarget) {
+                randomX = Random.Range(minX, maxX);
                 randomY = Random.Range(minY, maxY);
-                tChange = Time.time + Random.Range(minTime, maxTime);
+                randomTarget = new Vector3(randomX, randomY, 0);
             }
             float step = moveSpeed * Time.deltaTime;
             bool isMovingLeft = transform.position.x <= randomX;
             animator.SetBool("isMovingLeft", isMovingLeft);
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(randomX, randomY), step);
+            transform.position = Vector2.MoveTowards(transform.position, randomTarget, step);
         }
     }
 
@@ -100,6 +113,7 @@ public class PresidentBehavior : MonoBehaviour {
         {
             panicCounter = panicCounter + appliedPanic;
             animator.speed = 0.5f + Mathf.Floor(panicCounter / 20);
+            GetComponentInChildren<AudioSource>().Play();
         }
     }
 
@@ -108,6 +122,14 @@ public class PresidentBehavior : MonoBehaviour {
         yield return new WaitForSeconds(5);
         tinfoilHat.gameObject.SetActive(false);
         tinfoilHatActive = false;
+    }
+
+    public void ShowTalkBubble()
+    {
+        var wordIndex = Random.Range(0, talkBubbleWordList.Length - 1);
+        var text = talkBubbleWordList[wordIndex];
+
+        StartCoroutine(ShowTalkBubbleMessageFor3Seconds(text));
     }
 
     IEnumerator ShowTalkBubbleMessageFor3Seconds(string text)

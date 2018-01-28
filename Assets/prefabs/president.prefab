@@ -104,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032486277038292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.19, y: -2.91, z: 0}
+  m_LocalPosition: {x: -5.143, y: -2.91, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 4737004481557762}
@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1315906891775958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.34, y: 2.47, z: 0}
+  m_LocalPosition: {x: 2.12, y: 1.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224964523753741644}
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -273,6 +273,8 @@ MonoBehaviour:
   tinfoilHatActive: 0
   talkBubbleText: {fileID: 114362215903297546}
   talkBubble: {fileID: 1315906891775958}
+  randomX: 0
+  randomY: 0
   panicCounter: 0
 --- !u!212 &212002770893960336
 SpriteRenderer:
@@ -396,7 +398,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: fe8b94bfce2adcf49b66aacaaa0a06a7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 37ca1a567e7242f43bd14a58ad3632c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -440,7 +442,7 @@ RectTransform:
   m_GameObject: {fileID: 1965190206094806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 1}
+  m_LocalScale: {x: 0.015, y: 0.015, z: 1}
   m_Children: []
   m_Father: {fileID: 224964523753741644}
   m_RootOrder: 0
@@ -466,6 +468,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.14, y: -0.29}
+  m_AnchoredPosition: {x: 0.19, y: 0.48}
   m_SizeDelta: {x: 1.732, y: 0.468}
   m_Pivot: {x: 0.5, y: 0.5}

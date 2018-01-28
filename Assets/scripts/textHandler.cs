@@ -20,22 +20,27 @@ public class textHandler : MonoBehaviour
 	
 	public static readonly List<Word> Words = new List<Word>
 	{
-		new Word {Text = "satellite", Target = "satellite"},
-		new Word {Text = "spy", Target = "spy"},
-		new Word {Text = "marsu", Target = "television"},
-		new Word {Text = "olavi", Target = "telephone"},
-		new Word {Text = "satelliitti", Target = "satellite"},
-		new Word {Text = "mursu", Target = "spy"},
-		new Word {Text = "ilmari", Target = "televisio"},
-		new Word {Text = "jarno", Target = "telephone"},
-		new Word {Text = "kuu", Target = "satellite"},
-		new Word {Text = "japani", Target = "television"},
-		new Word {Text = "kanada", Target = "telephone"},
-		new Word {Text = "karstula", Target = "spy"},
-		new Word {Text = "tommi lantinen", Target = "satellite"},
-		new Word {Text = "huhuu", Target = "spy"},
-		new Word {Text = "tirppa", Target = "television"},
-		new Word {Text = "hullu", Target = "telephone"}
+		new Word {Text = "Satellite", Target = "satellite"},
+		new Word {Text = "Spy", Target = "spy"},
+		new Word {Text = "Television", Target = "television"},
+		new Word {Text = "Telephone", Target = "telephone"},
+		new Word {Text = "Satelliitti", Target = "satellite"},
+		new Word {Text = "Vakooja", Target = "spy"},
+		new Word {Text = "Oblong box", Target = "television"},
+		new Word {Text = "Phone", Target = "telephone"},
+		new Word {Text = "Fake moon", Target = "satellite"},
+		new Word {Text = "FAKE NEWS", Target = "television"},
+		new Word {Text = "Connecting People", Target = "telephone"},
+		new Word {Text = "CHINA", Target = "spy"},
+		new Word {Text = "SOVIET UNION", Target = "satellite"},
+		new Word {Text = "Espionage", Target = "spy"},
+		new Word {Text = "CNN news", Target = "television"},
+		new Word {Text = "Twitter", Target = "telephone"},
+		new Word {Text = "ACTIVISM", Target = "loudspeaker"},
+		new Word {Text = "Protest", Target = "loudspeaker"},
+		new Word {Text = "Protestors", Target = "loudspeaker"},
+		new Word {Text = "Biggest Crowd", Target = "loudspeaker"}
+
 		
 	};
 

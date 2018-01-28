@@ -50,7 +50,7 @@ public class keyboardListener : MonoBehaviour
 	{	
 		foreach (var word in demWords)
 		{
-			if (word.Text == inputWord && !word.IsSent)
+			if (string.Equals(word.Text.ToLower(), inputWord.ToLower(), StringComparison.Ordinal) && !word.IsSent)
 			{
 				var target = GameObject.Find(word.Target);
 				
