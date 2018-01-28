@@ -95,6 +95,7 @@ public class PresidentBehavior : MonoBehaviour {
         {
             panicCounter = panicCounter + appliedPanic;
             animator.speed = 0.5f + Mathf.Floor(panicCounter / 20);
+            GetComponentInChildren<AudioSource>().Play();
         }
     }
 
