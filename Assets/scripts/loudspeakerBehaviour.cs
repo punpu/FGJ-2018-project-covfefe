@@ -9,6 +9,9 @@ public class loudspeakerBehaviour : MonoBehaviour {
     public float periodMax = 1f;
     public float moveSpeed = 2f;
 
+    public int health = 0;
+    public int healthMax = 10;
+
     public bool isActive;
     public GameObject president;
     public Vector2 activePosition;
@@ -20,7 +23,7 @@ public class loudspeakerBehaviour : MonoBehaviour {
         gameObject.GetComponent<TransmitterBehavior>().isTransmitting = true;
         isActive = true;
         GetComponentInChildren<AudioSource>().Play();
-
+        health = healthMax;
     }
 
     public void Deactivate()
@@ -69,6 +72,18 @@ public class loudspeakerBehaviour : MonoBehaviour {
         {
             float step = moveSpeed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, hiddenPosition, step);
+        }
+    }
+
+    void OnMouseDown()
+    {
+        if (isActive)
+        {
+            health--;
+            if (health <= 0)
+            {
+                Deactivate();
+            }
         }
     }
 }
