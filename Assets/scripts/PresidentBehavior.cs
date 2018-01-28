@@ -27,6 +27,7 @@ public class PresidentBehavior : MonoBehaviour {
     private Vector3 randomTarget;
 
     private Transform tinfoilHat;
+    private Transform peltors;
 
     public float panicCounter;
 
@@ -43,7 +44,7 @@ public class PresidentBehavior : MonoBehaviour {
         animator = GetComponent<Animator>();
         Debug.Log(transmitters);
         tinfoilHat = transform.Find("tinfoilHat");
-
+        peltors = transform.Find("presidentpeltors");
         
         InvokeRepeating("ShowTalkBubble", 5.0f, 10f);
 
@@ -101,6 +102,19 @@ public class PresidentBehavior : MonoBehaviour {
             tinfoilHatActive = true;
             StartCoroutine(RemoveTinfoilHatAfter5Seconds());
         }
+        else if (item.name == "Peltors")
+        {
+            var loudspeaker = GameObject.Find("loudspeaker");
+
+            if (loudspeaker != null)
+            {
+                loudspeaker.GetComponent<loudspeakerBehaviour>().Deactivate();
+            }
+            peltors.gameObject.SetActive(true);
+            item.SendMessage("SetOnCooldown");
+            StartCoroutine(RemovePeltorsAfter5Seconds());
+            
+        }
         else
         {
             Debug.Log("President wants the tinfoilhat!");
@@ -122,6 +136,12 @@ public class PresidentBehavior : MonoBehaviour {
         yield return new WaitForSeconds(5);
         tinfoilHat.gameObject.SetActive(false);
         tinfoilHatActive = false;
+    }
+
+    IEnumerator RemovePeltorsAfter5Seconds()
+    {
+        yield return new WaitForSeconds(5);
+        peltors.gameObject.SetActive(false);
     }
 
     public void ShowTalkBubble()
