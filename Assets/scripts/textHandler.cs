@@ -22,20 +22,20 @@ public class textHandler : MonoBehaviour
 	{
 		new Word {Text = "satellite", Target = "satellite"},
 		new Word {Text = "spy", Target = "spy"},
-		new Word {Text = "marsu", Target = "television"},
-		new Word {Text = "olavi", Target = "telephone"},
+		new Word {Text = "television", Target = "television"},
+		new Word {Text = "telephone", Target = "telephone"},
 		new Word {Text = "satelliitti", Target = "satellite"},
-		new Word {Text = "mursu", Target = "spy"},
-		new Word {Text = "ilmari", Target = "televisio"},
-		new Word {Text = "jarno", Target = "telephone"},
-		new Word {Text = "kuu", Target = "satellite"},
-		new Word {Text = "japani", Target = "television"},
-		new Word {Text = "kanada", Target = "telephone"},
-		new Word {Text = "karstula", Target = "spy"},
-		new Word {Text = "tommi lantinen", Target = "satellite"},
-		new Word {Text = "huhuu", Target = "spy"},
-		new Word {Text = "tirppa", Target = "television"},
-		new Word {Text = "hullu", Target = "telephone"}
+		new Word {Text = "vakooja", Target = "spy"},
+		new Word {Text = "Oblong box", Target = "television"},
+		new Word {Text = "phone", Target = "telephone"},
+		new Word {Text = "fake moon", Target = "satellite"},
+		new Word {Text = "fake news", Target = "television"},
+		new Word {Text = "connecting people", Target = "telephone"},
+		new Word {Text = "china", Target = "spy"},
+		new Word {Text = "soviet union", Target = "satellite"},
+		new Word {Text = "espionage", Target = "spy"},
+		new Word {Text = "CNN news", Target = "television"},
+		new Word {Text = "twitter", Target = "telephone"}
 		
 	};
 
