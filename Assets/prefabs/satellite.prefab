@@ -87,7 +87,7 @@ MonoBehaviour:
   president: {fileID: 0}
   activePosition: {x: 2.29, y: 3.68}
   hiddenPosition: {x: 2.29, y: 6.3}
-  panicCount: 0
+  panicCount: 2
   isActive: 0
 --- !u!114 &114992510116035866
 MonoBehaviour:
@@ -134,7 +134,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 2701982d854b214409eb6103076377b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
