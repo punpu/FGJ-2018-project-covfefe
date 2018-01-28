@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour {
         {
             // set scene bad end
             Debug.Log("BAD END!!!");
+            SceneManager.LoadScene("BadEndingScene");
         }
 
         dayTimer += Time.deltaTime;
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour {
         {
             //set scene good end
             Debug.Log("GOOD END!!!");
+            SceneManager.LoadScene("GoodEndingScene");
         }
 	}
 }
