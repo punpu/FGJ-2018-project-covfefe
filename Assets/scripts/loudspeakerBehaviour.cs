@@ -44,7 +44,6 @@ public class loudspeakerBehaviour : MonoBehaviour {
     {
         isActive = false;
         president = GameObject.FindGameObjectWithTag("president");
-        panicCount = 50;
     }
 
     // Update is called once per frame

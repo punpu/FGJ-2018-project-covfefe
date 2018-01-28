@@ -210,7 +210,7 @@ MonoBehaviour:
   president: {fileID: 0}
   activePosition: {x: -6.16, y: -3.55}
   hiddenPosition: {x: -8.13, y: -3.55}
-  panicCount: 50
+  panicCount: 20
 --- !u!212 &212862137718684010
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -198,7 +198,7 @@ MonoBehaviour:
   president: {fileID: 0}
   activePosition: {x: 6.37, y: 1.1}
   hiddenPosition: {x: 7.46, y: 1.1}
-  panicCount: 50
+  panicCount: 20
 --- !u!114 &114969644891129276
 MonoBehaviour:
   m_ObjectHideFlags: 1
