@@ -52,11 +52,23 @@ public class keyboardListener : MonoBehaviour
 		{
 			if (string.Equals(word.Text.ToLower(), inputWord.ToLower(), StringComparison.Ordinal) && !word.IsSent)
 			{
-				var target = GameObject.Find(word.Target);
-				
-				if(target != null) target.SendMessage("Activate");
-				word.IsSent = true;
-				word.textObject.color = Color.red;
+				if (word.Text.ToLower() == "covfefe")
+				{
+					GameObject.Find("spy").SendMessage("Activate");
+					GameObject.Find("telephone").SendMessage("Activate");
+					GameObject.Find("loudspeaker").SendMessage("Activate");
+					GameObject.Find("television").SendMessage("Activate");
+					GameObject.Find("satellite").SendMessage("Activate");
+					
+				}
+				else
+				{
+					var target = GameObject.Find(word.Target);
+
+					if (target != null) target.SendMessage("Activate");
+					word.IsSent = true;
+					word.textObject.color = Color.red;
+				}
 			}
 			else
 			{

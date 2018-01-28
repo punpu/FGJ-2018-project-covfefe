@@ -87,7 +87,6 @@ public class televisionBehaviour : MonoBehaviour {
     {
         if (isActive)
         {
-            GameObject.Find("hitSound").GetComponentInChildren<AudioSource>().Play();
             health--;
             if (health <= 0)
             {

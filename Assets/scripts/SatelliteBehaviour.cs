@@ -62,7 +62,6 @@ public class SatelliteBehaviour : MonoBehaviour {
             transform.position = Vector2.MoveTowards(transform.position, activePosition, step);
 
             currentPeriod -= Time.deltaTime;
-            GameObject.Find("hitSound").GetComponentInChildren<AudioSource>().Play();
 
             if(currentPeriod < 0f)
             {

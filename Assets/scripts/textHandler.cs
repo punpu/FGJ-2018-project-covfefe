@@ -39,9 +39,9 @@ public class textHandler : MonoBehaviour
 		new Word {Text = "ACTIVISM", Target = "loudspeaker"},
 		new Word {Text = "Protest", Target = "loudspeaker"},
 		new Word {Text = "Protestors", Target = "loudspeaker"},
-		new Word {Text = "Biggest Crowd", Target = "loudspeaker"}
+		new Word {Text = "Biggest Crowd", Target = "loudspeaker"},
+		new Word {Text = "Power Word COVFEFE"}
 
-		
 	};
 
 	public static List<Word> currentWords;
@@ -61,6 +61,11 @@ public class textHandler : MonoBehaviour
 	public static void SetTexts()
 	{
 		currentWords = new List<Word>();
+
+		foreach (var word in Words)
+		{
+			word.IsSent = false;
+		}
 		
 		addWord(GameObject.Find("Text1Container").GetComponentInChildren<Text>());
 		addWord(GameObject.Find("Text2Container").GetComponentInChildren<Text>());
@@ -76,10 +81,9 @@ public class textHandler : MonoBehaviour
 	private static void addWord(Text uiText)
 	{
 		if (Words.Count <= 0) return;
-		var indx = Random.Range(0, Words.Count - 1);
+		var indx = Random.Range(0, Words.Count);
 		uiText.text = Words.ElementAt(indx).Text;
 		Words.ElementAt(indx).textObject = uiText;
 		currentWords.Add(Words.ElementAt(indx));
-		Words.RemoveAt(indx);
 	}
 }
