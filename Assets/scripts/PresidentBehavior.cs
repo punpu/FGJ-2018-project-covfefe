@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PresidentBehavior : MonoBehaviour {
 	public float minX;
@@ -14,8 +15,13 @@ public class PresidentBehavior : MonoBehaviour {
     public string transmitterTag = "Transmitter";
     public bool tinfoilHatActive = false;
 
+    public Text talkBubbleText;
+    public GameObject talkBubble;
+
+	private float tChange = 0;
     public float randomX;
     public float randomY;
+
     private GameObject[] transmitters;
     private Animator animator;
     private Vector3 randomTarget;
@@ -23,12 +29,24 @@ public class PresidentBehavior : MonoBehaviour {
     private Transform tinfoilHat;
 
     public float panicCounter;
-    
+
+
+    string[] talkBubbleWordList;
+
+
+
     // Use this for initialization
     void Start () {
+        talkBubbleWordList = new[] { "Fake news!", "CHYNA!", "SAD!", "Build the wall!" };
+
         transmitters = GameObject.FindGameObjectsWithTag(transmitterTag);
         animator = GetComponent<Animator>();
         Debug.Log(transmitters);
+        tinfoilHat = transform.Find("tinfoilHat");
+
+        
+        InvokeRepeating("ShowTalkBubble", 5.0f, 10f);
+
         tinfoilHat = transform.Find("tinfoilHat");
         randomX = Random.Range(minX, maxX);
         randomY = Random.Range(minY, maxY);
@@ -104,6 +122,22 @@ public class PresidentBehavior : MonoBehaviour {
         yield return new WaitForSeconds(5);
         tinfoilHat.gameObject.SetActive(false);
         tinfoilHatActive = false;
+    }
+
+    public void ShowTalkBubble()
+    {
+        var wordIndex = Random.Range(0, talkBubbleWordList.Length - 1);
+        var text = talkBubbleWordList[wordIndex];
+
+        StartCoroutine(ShowTalkBubbleMessageFor3Seconds(text));
+    }
+
+    IEnumerator ShowTalkBubbleMessageFor3Seconds(string text)
+    {
+        talkBubbleText.text = text;
+        talkBubble.SetActive(true);
+        yield return new WaitForSeconds(3);
+        talkBubble.SetActive(false);
     }
 
 }
