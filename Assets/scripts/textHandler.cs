@@ -62,6 +62,7 @@ public class textHandler : MonoBehaviour
 	};
 
 	public static List<Word> currentWords;
+	private static List<Word> availableWords; 
 	
 	// Use this for initialization
 	void Start ()
@@ -78,11 +79,14 @@ public class textHandler : MonoBehaviour
 	public static void SetTexts()
 	{
 		currentWords = new List<Word>();
-
+		
+		
 		foreach (var word in Words)
 		{
 			word.IsSent = false;
 		}
+		
+		availableWords = Words;
 		
 		addWord(GameObject.Find("Text1Container").GetComponentInChildren<Text>());
 		addWord(GameObject.Find("Text2Container").GetComponentInChildren<Text>());
@@ -90,20 +94,28 @@ public class textHandler : MonoBehaviour
 		addWord(GameObject.Find("Text4Container").GetComponentInChildren<Text>());
 		addWord(GameObject.Find("Text5Container").GetComponentInChildren<Text>());
 		addWord(GameObject.Find("Text6Container").GetComponentInChildren<Text>());
+	}
 
-		var testi = currentWords;
+	private void newWords()
+	{
+		
 	}
 	
 
 	private static void addWord(Text uiText)
 	{
-		if (Words.Count <= 0) return;
-		var indx = Random.Range(0, Words.Count);
-		uiText.text = Words.ElementAt(indx).Text;
+		
+		
+		if (availableWords.Count <= 0) return;
+		var indx = Random.Range(0, availableWords.Count);
+	
+		uiText.text = availableWords.ElementAt(indx).Text;
+		
         //uiText.color = Color(DECD0EFF);
         Color myColor = new Color32(0xDE, 0xCD, 0x0E, 0xFF);
         uiText.color = myColor;
-		Words.ElementAt(indx).textObject = uiText;
-		currentWords.Add(Words.ElementAt(indx));
+		availableWords.ElementAt(indx).textObject = uiText;
+		currentWords.Add(availableWords.ElementAt(indx));
+		availableWords.RemoveAt(indx);
 	}
 }

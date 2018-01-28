@@ -13,6 +13,7 @@ using UnityEngineInternal;
         public float Points { get; set; }
         public string Target { get; set; }
         public Text textObject { get; set; }
+        public bool IsOnList { get; set; }
         
         public Word()
         {
@@ -22,6 +23,7 @@ using UnityEngineInternal;
             Text = "";
             IsSent = false;
             Points = 0;
+            IsOnList = false;
 
         }
 
