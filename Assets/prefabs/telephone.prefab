@@ -83,7 +83,7 @@ MonoBehaviour:
   periodMax: 1
   moveSpeed: 2
   health: 0
-  healthMax: 5
+  healthMax: 10
   isActive: 0
   president: {fileID: 0}
   activePosition: {x: -1.36, y: 0.16}

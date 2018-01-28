@@ -10,7 +10,7 @@ public class televisionBehaviour : MonoBehaviour {
     public float moveSpeed = 2f;
 
     public int health = 0;
-    public int healthMax = 5;
+    public int healthMax = 10;
 
     public bool isActive;
     public GameObject president;
