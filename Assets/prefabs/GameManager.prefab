@@ -54,4 +54,4 @@ MonoBehaviour:
   president: {fileID: 0}
   presidentBehavior: {fileID: 0}
   dayTimer: 0
-  dayLength: 120
+  dayLength: 90

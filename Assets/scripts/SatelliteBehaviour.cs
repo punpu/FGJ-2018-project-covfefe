@@ -49,7 +49,6 @@ public class SatelliteBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start () {
         president = GameObject.FindGameObjectWithTag("president");
-        panicCount = 2;
         isActive = false;
 	}
 	
