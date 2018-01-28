@@ -597,7 +597,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.3602941, g: 0.8208334, b: 1, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1097,7 +1097,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: dbaa501978ef54ace99be285ef9149ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1252,11 +1252,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4890927354997036, guid: f7e327bcd9fe1b649b2ed2e941b0c714, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.54
+      value: -3.63
       objectReference: {fileID: 0}
     - target: {fileID: 4890927354997036, guid: f7e327bcd9fe1b649b2ed2e941b0c714, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.75
+      value: -1.92
       objectReference: {fileID: 0}
     - target: {fileID: 4890927354997036, guid: f7e327bcd9fe1b649b2ed2e941b0c714, type: 2}
       propertyPath: m_LocalPosition.z
