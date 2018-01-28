@@ -72,6 +72,15 @@ public class televisionBehaviour : MonoBehaviour {
         }
     }
 
+    public void OnItemUse(GameObject item)
+    {
+        if (item.name == "TelevisionRemote")
+        {
+            item.SendMessage("SetOnCooldown");
+            Deactivate();
+        }
+    }
+
     void OnMouseDown()
     {
         if (isActive)

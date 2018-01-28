@@ -72,6 +72,15 @@ public class telephoneBehaviour : MonoBehaviour {
         }
     }
 
+    public void OnItemUse(GameObject item)
+    {
+        if (item.name == "Bucket")
+        {
+            item.SendMessage("SetOnCooldown");
+            Deactivate();
+        }
+    }
+
     void OnMouseDown()
     {
         if (isActive)

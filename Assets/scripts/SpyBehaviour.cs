@@ -71,6 +71,16 @@ public class SpyBehaviour : MonoBehaviour {
     }
 
 
+    public void OnItemUse(GameObject item)
+    {
+        if (item.name == "Pistol")
+        {
+            item.SendMessage("SetOnCooldown");
+            Deactivate();
+        }
+    }
+
+
     void OnMouseDown()
     {
         if (isActive)
