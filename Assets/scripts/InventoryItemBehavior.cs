@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-public class TinfoilHatBehavior : MonoBehaviour, IItemInterface {
+public class InventoryItemBehavior : MonoBehaviour, IItemInterface {
 
 
     public float cooldownMax = 5f;

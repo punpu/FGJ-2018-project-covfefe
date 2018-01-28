@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngineInternal;
 
 
@@ -10,6 +11,8 @@ using UnityEngineInternal;
         public int CurrentIndex { get; set; }
         public bool IsSent { get; set; }
         public float Points { get; set; }
+        public string Target { get; set; }
+        public Text textObject { get; set; }
         
         public Word()
         {
