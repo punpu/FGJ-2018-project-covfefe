@@ -40,7 +40,24 @@ public class textHandler : MonoBehaviour
 		new Word {Text = "Protest", Target = "loudspeaker"},
 		new Word {Text = "Protestors", Target = "loudspeaker"},
 		new Word {Text = "Biggest Crowd", Target = "loudspeaker"},
-		new Word {Text = "Power Word COVFEFE"}
+        new Word {Text = "James Bond", Target = "spy"},
+        new Word {Text = "Sean Connery", Target = "spy"},
+        new Word {Text = "MIR station", Target = "satellite"},
+        new Word {Text = "Collusion", Target = "television"},
+        new Word {Text = "Bananaphone", Target = "telephone"},
+        new Word {Text = "Death Star", Target = "satellite"},
+        new Word {Text = "Angry mob", Target = "loudspeaker"},
+        new Word {Text = "Give me shoes", Target = "loudspeaker"},
+        new Word {Text = "Blackberry", Target = "telephone"},
+        new Word {Text = "SMS scandal", Target = "telephone"},
+        new Word {Text = "Is that a plane", Target = "satellite"},
+        new Word {Text = "Fox news", Target = "television"},
+        new Word {Text = "Comrade lmao", Target = "spy"},
+        new Word {Text = "Where is my derringer", Target = "spy"},
+        new Word {Text = "Out of my lawn", Target = "spy"},
+        new Word {Text = "Racket", Target = "television"},
+        new Word {Text = "Beauty pageant", Target = "television"},
+        new Word {Text = "Power Word COVFEFE"}
 
 	};
 
