@@ -933,11 +933,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 114798750685929244, guid: e6a1ff6dff96e4d4dad6c9700bdd4fa1,
-        type: 2}
-      propertyPath: dayLength
-      value: 120
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6a1ff6dff96e4d4dad6c9700bdd4fa1, type: 2}
   m_IsPrefabParent: 0
