@@ -20,22 +20,27 @@ public class textHandler : MonoBehaviour
 	
 	public static readonly List<Word> Words = new List<Word>
 	{
-		new Word {Text = "satellite", Target = "satellite"},
-		new Word {Text = "spy", Target = "spy"},
-		new Word {Text = "television", Target = "television"},
-		new Word {Text = "telephone", Target = "telephone"},
-		new Word {Text = "satelliitti", Target = "satellite"},
-		new Word {Text = "vakooja", Target = "spy"},
+		new Word {Text = "Satellite", Target = "satellite"},
+		new Word {Text = "Spy", Target = "spy"},
+		new Word {Text = "Television", Target = "television"},
+		new Word {Text = "Telephone", Target = "telephone"},
+		new Word {Text = "Satelliitti", Target = "satellite"},
+		new Word {Text = "Vakooja", Target = "spy"},
 		new Word {Text = "Oblong box", Target = "television"},
-		new Word {Text = "phone", Target = "telephone"},
-		new Word {Text = "fake moon", Target = "satellite"},
-		new Word {Text = "fake news", Target = "television"},
-		new Word {Text = "connecting people", Target = "telephone"},
-		new Word {Text = "china", Target = "spy"},
-		new Word {Text = "soviet union", Target = "satellite"},
-		new Word {Text = "espionage", Target = "spy"},
+		new Word {Text = "Phone", Target = "telephone"},
+		new Word {Text = "Fake moon", Target = "satellite"},
+		new Word {Text = "FAKE NEWS", Target = "television"},
+		new Word {Text = "Connecting People", Target = "telephone"},
+		new Word {Text = "CHINA", Target = "spy"},
+		new Word {Text = "SOVIET UNION", Target = "satellite"},
+		new Word {Text = "Espionage", Target = "spy"},
 		new Word {Text = "CNN news", Target = "television"},
-		new Word {Text = "twitter", Target = "telephone"}
+		new Word {Text = "Twitter", Target = "telephone"},
+		new Word {Text = "ACTIVISM", Target = "loudspeaker"},
+		new Word {Text = "Protest", Target = "loudspeaker"},
+		new Word {Text = "Protestors", Target = "loudspeaker"},
+		new Word {Text = "Biggest Crowd", Target = "loudspeaker"}
+
 		
 	};
 
